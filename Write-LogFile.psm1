@@ -16,32 +16,20 @@ function Write-LogFile {
     [CmdletBinding()]
     param (
         
-        [Parameter(Mandatory=$true, ParameterSetName="init")]
-        [ValidateNotNullOrEmpty()]
+        [Parameter(Mandatory=$true, Position=0, ParameterSetName="init")]
         [switch]$Start,
        
-        [Parameter(Mandatory=$false, ParameterSetName="init")]
+        [Parameter(Mandatory=$true, Position=1, ParameterSetName="init")]
         [ValidateNotNullOrEmpty()]
         [string]$LogPath,
 
         [Parameter(Mandatory=$true, ParameterSetName="end", Position=0)]
-        [ValidateNotNullOrEmpty()]
-        [switch]$End
-       
+        [switch]$End      
     )
-    
-    while($Start) {
-        
-        if($End) {break}
 
-    }    
+    # TODO: implement beginning of While Loop, create path to file, and write basic messages
 
+ 
 }
 
-Write-LogFile -Start
 
-Write-Host "Hello from"
-Write-Host "the Log"
-Write-Host "Function"
-
-Write-LogFile -End
