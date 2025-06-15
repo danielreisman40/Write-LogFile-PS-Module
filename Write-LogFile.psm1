@@ -20,9 +20,9 @@ function Write-LogFile {
         [ValidateNotNullOrEmpty()]
         [switch]$Start,
        
-        [Parameter(Mandatory=$true, ParameterSetName="init")]
+        [Parameter(Mandatory=$false, ParameterSetName="init")]
         [ValidateNotNullOrEmpty()]
-        [string]$filePath,
+        [string]$LogPath,
 
         [Parameter(Mandatory=$true, ParameterSetName="end", Position=0)]
         [ValidateNotNullOrEmpty()]
@@ -30,15 +30,18 @@ function Write-LogFile {
        
     )
     
-    begin {
+    while($Start) {
         
-    }
-    
-    process {
-        
-    }
-    
-    end {
-        
-    }
+        if($End) {break}
+
+    }    
+
 }
+
+Write-LogFile -Start
+
+Write-Host "Hello from"
+Write-Host "the Log"
+Write-Host "Function"
+
+Write-LogFile -End
